@@ -1,0 +1,27 @@
+{
+  "name": "pruebaproteccion",
+  "version": "1.0.0",
+  "description": "Prueba para desarrolladores Proteccion S.A.: serie Fibonacci",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Serie Fibonacci",
+    "NodeJs",
+    "Express",
+    "Proteccion S.A."
+  ],
+  "author": "Wilhelm Geney",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "http-errors": "^2.0.0",
+    "nodemailer": "^6.7.2"
+  }
+}
