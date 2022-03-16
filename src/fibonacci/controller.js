@@ -41,7 +41,7 @@ module.exports.FibonacciController = {
         fib[i] = fib[i - 1] + fib[i - 2];
       }
 
-      const result = [`Hora de ejecucion: ${hours}:${minut}:${second}` + "\n" + `Serie fibonacci generada: ${fib}`];
+      const result = [`Hora de ejecucion: ${hours}:${minut}:${second}` + "\n\n" + `Serie fibonacci generada: ${fib}`];
 
       Response.success(res, 200, "Serie Fibonacci Creada", '¡Email enviado con exito! Consulte su correo, por favor');
       sendEmail(result.toString());
