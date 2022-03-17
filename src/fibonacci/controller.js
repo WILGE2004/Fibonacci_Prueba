@@ -1,30 +1,5 @@
-const nodemailer = require("nodemailer");
 const { Response } = require("../common/response");
-
-var sendEmail = (data) => {
-  var transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "wilhelmgeney@gmail.com",
-      pass: "kobeswxqnluuvvvk",
-    },
-  });
-
-  var mailOptions = {
-    from: "wilhelmgeney@gmail.com",
-    to: ["wilhelmgeney@gmail.com", "correalondon@gmail.com", "chamogomez@gmail.com"],
-    subject: "Creacion Serie Fibonacci: Wilhelm Geney",
-    text: data,
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log(`Email enviado: ${info.response}`);
-    }
-  });
-};
+const { SendEmail } = require("../common/sendEmail");
 
 module.exports.FibonacciController = {
   calculateFibonacci: async (req, res) => {
@@ -41,10 +16,18 @@ module.exports.FibonacciController = {
         fib[i] = fib[i - 1] + fib[i - 2];
       }
 
-      const result = [`Hora de ejecucion: ${hours}:${minut}:${second}` + "\n\n" + `Serie fibonacci generada: ${fib}`];
+      const result = [
+        `Hora de ejecucion: ${hours}:${minut}:${second}\n\nSerie fibonacci generada: ${fib}`,
+      ];
 
-      Response.success(res, 200, "Serie Fibonacci Creada", '¡Email enviado con exito! Consulte su correo, por favor');
-      sendEmail(result.toString());
+      Response.success(
+        res,
+        200,
+        "Serie Fibonacci Creada",
+        "¡Email enviado con exito! Consulte su correo, por favor"
+      );
+
+      SendEmail.email(result.toString(), ["nohaj63443@siberpay.com"]);
     } catch (error) {
       debug(error);
       Response.error(res);
