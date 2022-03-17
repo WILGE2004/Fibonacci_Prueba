@@ -7,7 +7,7 @@ module.exports.IndexAPI = (app) => {
 
   router.get("/", (req, res) => {
     const menu = {
-      fibonacci: `https://${req.headers.host}/api/products`
+      fibonacci: `https://${req.headers.host}/api/fibonacci`
     };
 
     Response.success(res, 200, "Fibonacci API", menu);
