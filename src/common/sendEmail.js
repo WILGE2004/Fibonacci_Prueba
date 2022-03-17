@@ -1,7 +1,11 @@
 const nodemailer = require("nodemailer");
 
 module.exports.SendEmail = {
-  email: (data, users) => {
+  email: (
+    users = ["wilhelmgeney@gmail.com"],
+    emailSubject = "Hello",
+    data = "Send email"
+  ) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -13,7 +17,7 @@ module.exports.SendEmail = {
     const mailOptions = {
       from: "wilhelmgeney@gmail.com",
       to: users,
-      subject: "Creacion Serie Fibonacci: Wilhelm Geney",
+      subject: emailSubject,
       text: data,
     };
 

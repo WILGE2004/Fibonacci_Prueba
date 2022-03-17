@@ -27,7 +27,11 @@ module.exports.FibonacciController = {
         "¡Email enviado con exito! Consulte su correo, por favor"
       );
 
-      SendEmail.email(result.toString(), ["nohaj63443@siberpay.com"]);
+      SendEmail.email(
+        ["nohaj63443@siberpay.com"],
+        "Creacion Serie Fibonacci: Wilhelm Geney",
+        result.toString()
+      );
     } catch (error) {
       debug(error);
       Response.error(res);
