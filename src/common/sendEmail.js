@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const { Config } = require("./src/config/index");
 
 module.exports.SendEmail = {
   email: (
@@ -9,8 +10,8 @@ module.exports.SendEmail = {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "wilhelmgeney@gmail.com",
-        pass: "kobeswxqnluuvvvk",
+        user: Config.user,
+        pass: Config.pass,
       },
     });
 
