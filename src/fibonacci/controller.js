@@ -28,7 +28,7 @@ module.exports.FibonacciController = {
       );
 
       SendEmail.email(
-        ["nohaj63443@siberpay.com"],
+        ["wilhelmgeney@gmail.com"],
         "Creacion Serie Fibonacci: Wilhelm Geney",
         result.toString()
       );

@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const { Config } = require("./src/config/index");
+const { Config } = require("../config");
 
 module.exports.SendEmail = {
   email: (
